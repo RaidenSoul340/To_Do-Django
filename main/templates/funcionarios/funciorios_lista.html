@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Funcionários</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .funcionario {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .ativo {
+            background-color: #e0ffe0;
+        }
+        .inativo {
+            background-color: #ffe0e0;
+        }
+        .add-funcioario {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .add-funcioario:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Funcionários</h1>
+    
+    <a href="{% url 'add_funcionario' %}" class="add-funcioario">Adicionar Novo Funcionário</a>
+
+    <h2>Funcionários Ativos</h2>
+    <div>
+        {% for funcioario in funcionarios_on %}
+            {% if not funcioario.status %}
+                <div class="Funcionario Ativos">
+                    {{ funcioario.Nome }}
+                </div>
+            {% endif %}
+        {% empty %}
+            <p>Não há Funcionario Ativos</p>
+        {% endfor %}
+    </div>
+
+    <h2>Funcionários Inativos</h2>
+    <div>
+        {% for funcioario in funcionarios_off %}
+            {% if not funcioario.status %}
+                <div class="Funcionario Inativo">
+                    {{ funcioario.Nome }}
+                </div>
+            {% endif %}
+        {% empty %}
+            <p>Não há Funcionario Inativo</p>
+        {% endfor %}
+    </div>
+    </div>
+</body>
+</html>
