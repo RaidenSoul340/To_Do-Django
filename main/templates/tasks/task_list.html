@@ -51,6 +51,8 @@
                 <div class="task incomplete">
                     {{ task.titulo }}
                 </div>
+                <a href="{% url 'atualizar_task' task.id %}">Editar Tarefas</a>
+                <a href="{% url 'delete_task' task.id %}">Excluir Tarefas</a>
             {% endif %}
         {% empty %}
             <p>Não há tarefas incompletas.</p>
@@ -64,10 +66,13 @@
                 <div class="task complete">
                     {{ task.titulo }}
                 </div>
+                <a href="{% url 'atualizar_task' task.id %}">Editar Tarefas</a>
+                <a href="{% url 'delete_task' task.id %}">Excluir Tarefas</a>
             {% endif %}
         {% empty %}
             <p>Não há tarefas completas.</p>
         {% endfor %}
     </div>
+    <a href="{% url 'Lista_funcionarios' %}">Lista de Funcionarios</a>
 </body>
 </html>

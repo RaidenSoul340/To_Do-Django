@@ -50,6 +50,7 @@
                 <div class="Funcionario Ativos">
                     {{ funcioario.Nome }}
                 </div>
+                <a href="{% url 'delete_funcionario' funcioario.id %}">Excluir Tarefas</a>
             {% endif %}
         {% empty %}
             <p>Não há Funcionario Ativos</p>
@@ -63,6 +64,7 @@
                 <div class="Funcionario Inativo">
                     {{ funcioario.Nome }}
                 </div>
+                <a href="{% url 'delete_funcionario' funcioario.id %}">Excluir Tarefas</a>
             {% endif %}
         {% empty %}
             <p>Não há Funcionario Inativo</p>
