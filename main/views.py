@@ -88,7 +88,8 @@ def atualizar_funcionario(request, id):
         
         atualizar.save()
         
-        return redirect
+        return redirect('Lista_funcionarios')
+    return render(request, 'funcionarios/atualizar_funcionarios.html', {'funcionario':atualizar})
 #================================================================================#
 
 

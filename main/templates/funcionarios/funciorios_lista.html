@@ -36,6 +36,16 @@
         .add-funcioario:hover {
             background-color: #0056b3;
         }
+
+        .trocar-pagina {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -50,6 +60,7 @@
                 <div class="Funcionario Ativos">
                     {{ funcioario.Nome }}
                 </div>
+                <a href="{% url 'atualizar_funcionario' funcioario.id %}">Editar Tarefas</a>
                 <a href="{% url 'delete_funcionario' funcioario.id %}">Excluir Tarefas</a>
             {% endif %}
         {% empty %}
@@ -64,6 +75,7 @@
                 <div class="Funcionario Inativo">
                     {{ funcioario.Nome }}
                 </div>
+                <a href="{% url 'atualizar_funcionario' funcioario.id %}">Editar Tarefas</a>
                 <a href="{% url 'delete_funcionario' funcioario.id %}">Excluir Tarefas</a>
             {% endif %}
         {% empty %}
@@ -71,5 +83,6 @@
         {% endfor %}
     </div>
     </div>
+    <a href="{% url 'lista_tarefas' %}" class="trocar-pagina">Lista de Tasks</a>
 </body>
 </html>

@@ -11,5 +11,6 @@ urlpatterns = [
     path('delete/task/<int:task_id>/', views.delete_task, name='delete_task'),
     path('delete/funcionario/<int:funcionario_id>/', views.delete_funcionario, name='delete_funcionario'),
     #================================================================================#
-    path('atualizar/<int:id>/', views.atualizar_tasks, name='atualizar_task'),
+    path('atualizar/task/<int:id>/', views.atualizar_tasks, name='atualizar_task'),
+    path('atualizar/funcionario/<int:id>', views.atualizar_funcionario, name='atualizar_funcionario'),
 ]
