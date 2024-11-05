@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from .models import Task, Funcionarios
 
+#================================================================================#
 #Exibir informações no front
+@login_required #Um requerimento caso tente acessar tem quer fazer um login
 def task_list(request):
     tasks = Task.objects.all() #Buscando todo os dados quem tem na tabela
 
@@ -12,6 +15,7 @@ def ListaFuncionario(request):
     funcionarios_off = Funcionarios.objects.filter(presente=False)
     return render(request, 'funcionarios/funciorios_lista.html', {'funcionarios_on':funcionarios_on, 'funcionarios_off':funcionarios_off})
 #================================================================================#
+@login_required
 def add_task(request):
     if request.method == "POST":
         titulo = request.POST.get('titulo')

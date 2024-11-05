@@ -1,53 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Tarefas</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        h1 {
-            color: #333;
-        }
-        .task {
-            margin: 10px 0;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        .complete {
-            background-color: #e0ffe0;
-            text-decoration: line-through;
-        }
-        .incomplete {
-            background-color: #ffe0e0;
-        }
-        .add-task {
-            display: inline-block;
-            margin-bottom: 20px;
-            padding: 10px 15px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .add-task:hover {
-            background-color: #0056b3;
-        }
-        .trocar-pagina {
-            display: inline-block;
-            margin-bottom: 20px;
-            padding: 10px 15px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-    </style>
-</head>
+{% extends "base.html" %}
+{% block content %}
 <body>
     <h1>Lista de Tarefas</h1>
     
@@ -84,4 +36,5 @@
     </div>
     <a href="{% url 'Lista_funcionarios' %}" class="trocar-pagina">Lista de Funcionarios</a>
 </body>
-</html>
+
+{% endblock %}

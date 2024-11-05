@@ -1,0 +1,12 @@
+{% expand "base.html" %}
+{% block content %}
+    <section>
+        <h2>{{ mensagem }}</h2>
+
+        <h3>Nossas Tarefas</h3>
+        <ul>
+            {% for task in tasks %}
+                <li>{{task}}</li>
+            {% endfor %}
+        </ul>
+{% endblock %}
