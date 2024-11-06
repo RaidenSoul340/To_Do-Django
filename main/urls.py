@@ -13,4 +13,6 @@ urlpatterns = [
     #================================================================================#
     path('atualizar/task/<int:id>/', views.atualizar_tasks, name='atualizar_task'),
     path('atualizar/funcionario/<int:id>', views.atualizar_funcionario, name='atualizar_funcionario'),
+    #================================================================================#
+
 ]

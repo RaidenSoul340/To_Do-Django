@@ -1,59 +1,13 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Funcionários</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        h1 {
-            color: #333;
-        }
-        .funcionario {
-            margin: 10px 0;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        .ativo {
-            background-color: #e0ffe0;
-        }
-        .inativo {
-            background-color: #ffe0e0;
-        }
-        .add-funcioario {
-            display: inline-block;
-            margin-bottom: 20px;
-            padding: 10px 15px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .add-funcioario:hover {
-            background-color: #0056b3;
-        }
-
-        .trocar-pagina {
-            display: inline-block;
-            margin-bottom: 20px;
-            padding: 10px 15px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-    </style>
-</head>
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link href="{% static 'css/Funcionario/lista_funcionarios.css' %}" rel="stylesheet">
 <body>
     <h1>Lista de Funcionários</h1>
     
     <a href="{% url 'add_funcionario' %}" class="add-funcioario">Adicionar Novo Funcionário</a>
 
-    <h2>Funcionários Ativos</h2>
+    <h2 class="F-A">Funcionários Ativos</h2>
     <div>
         {% for funcioario in funcionarios_on %}
             {% if not funcioario.status %}
@@ -64,11 +18,11 @@
                 <a href="{% url 'delete_funcionario' funcioario.id %}">Excluir Tarefas</a>
             {% endif %}
         {% empty %}
-            <p>Não há Funcionario Ativos</p>
+            <p class="ativo">Não há Funcionario Ativos</p>
         {% endfor %}
     </div>
 
-    <h2>Funcionários Inativos</h2>
+    <h2 class="F-I">Funcionários Inativos</h2>
     <div>
         {% for funcioario in funcionarios_off %}
             {% if not funcioario.status %}
@@ -79,10 +33,12 @@
                 <a href="{% url 'delete_funcionario' funcioario.id %}">Excluir Tarefas</a>
             {% endif %}
         {% empty %}
-            <p>Não há Funcionario Inativo</p>
+            <p class="inativo">Não há Funcionario Inativo</p>
         {% endfor %}
     </div>
     </div>
     <a href="{% url 'lista_tarefas' %}" class="trocar-pagina">Lista de Tasks</a>
 </body>
-</html>
+{% endblock %}
+
+<a href="{% url 'atualizar_funcionario' funcioario.id %}">Editar Tarefas</a>
